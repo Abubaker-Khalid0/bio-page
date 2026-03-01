@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { motion } from "motion/react";
 
 export default function LanguageSwitcher() {
@@ -18,7 +18,7 @@ export default function LanguageSwitcher() {
   return (
     <motion.button
       onClick={switchLocale}
-      className="fixed top-4 end-4 z-50 bg-white border border-lyore-text/10 px-[14px] py-[6px] h-[34px] text-[11px] uppercase tracking-[0.15em] text-lyore-text/70 hover:text-lyore-text transition-colors"
+      className="fixed top-4 end-4 z-50 bg-white border border-brand-text/10 px-[14px] py-[6px] h-[34px] text-[11px] uppercase tracking-[0.15em] text-brand-text/70 hover:text-brand-text transition-colors"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}

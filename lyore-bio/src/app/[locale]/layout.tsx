@@ -55,14 +55,14 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
   const direction = locale === "ar" ? "rtl" : "ltr";
-  const fontFamily = locale === "ar" 
-    ? `${tajawal.variable} ${notoNaskhArabic.variable}` 
+  const fontFamily = locale === "ar"
+    ? `${tajawal.variable} ${notoNaskhArabic.variable}`
     : `${inter.variable} ${playfairDisplay.variable}`;
 
   return (
     <html lang={locale} dir={direction}>
       <body
-        className={`${fontFamily} antialiased bg-lyore-background text-lyore-text`}
+        className={`${fontFamily} antialiased bg-brand-background text-brand-text`}
       >
         <NextIntlClientProvider messages={messages}>
           {children}
