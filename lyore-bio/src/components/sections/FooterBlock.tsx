@@ -28,8 +28,7 @@ export default function FooterBlock({
             </p>
 
             {/* Crafted line */}
-            <p className="text-[10px] text-brand-text/18 text-center mt-1.5">
-                {craftedText}
+            <p className="text-[10px] text-brand-text/25 text-center mt-1.5">                {craftedText}
             </p>
         </footer>
     );
