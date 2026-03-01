@@ -65,7 +65,7 @@ export function StaggerGroup({
     return (
         <div className={className}>
             {children.map((child, i) => (
-                <AnimatedTest key={i} delay={i * staggerDelay}>
+                <AnimatedTest key={i} delay={i * staggerDelay} className="w-full">
                     {child}
                 </AnimatedTest>
             ))}

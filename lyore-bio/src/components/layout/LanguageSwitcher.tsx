@@ -11,17 +11,16 @@ export default function LanguageSwitcher() {
 
   const switchLocale = () => {
     const newLocale = locale === "ar" ? "en" : "ar";
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
-    router.push(newPath);
+    router.push(pathname, { locale: newLocale });
   };
 
   return (
     <motion.button
       onClick={switchLocale}
-      className="fixed top-4 end-4 z-50 bg-white border border-brand-text/10 px-[14px] py-[6px] h-[34px] text-[11px] uppercase tracking-[0.15em] text-brand-text/70 hover:text-brand-text transition-colors"
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
+      className="fixed top-4 end-4 z-50 bg-white/70 backdrop-blur-md border border-white/50 px-4 py-[6px] h-[34px] text-[11px] uppercase tracking-[0.15em] text-brand-text/80 hover:text-brand-text hover:bg-white/90 transition-all duration-300 ease-out"
+      initial={{ opacity: 0, scale: 0.9, y: -10 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
     >
       {locale === "ar" ? "EN" : "عربي"}
     </motion.button>
