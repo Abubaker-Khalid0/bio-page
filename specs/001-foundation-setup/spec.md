@@ -5,6 +5,14 @@
 **Status**: Draft  
 **Input**: User description: "Phase 1 - Foundation & Setup: Initialize Next.js 15 project with TypeScript, Tailwind CSS v4, shadcn/ui, Motion (Framer Motion v12), next-intl for AR/EN bilingual support, Lucide React icons, self-hosted fonts (Playfair Display, Inter, Noto Naskh Arabic, Tajawal), RTL plugin, and complete design system with CSS variables"
 
+## Clarifications
+
+### Session 2026-02-28
+
+- Q: Should fonts be loaded from Google Fonts CDN or downloaded and self-hosted locally? → A: Self-hosted local files
+- Q: What is the minimum Node.js version required for this project? → A: Node.js 20.x LTS
+- Q: Should the project include automated dependency security scanning? → A: Yes, with npm audit
+
 ## User Scenarios & Testing
 
 ### User Story 1 - Development Environment Ready (Priority: P1)
@@ -96,23 +104,26 @@ As a developer, I need Motion (Framer Motion v12) installed and working so that 
 - What if CSS variables are not supported in older browsers? (Graceful degradation with fallback colors)
 - How does RTL plugin handle mixed LTR/RTL content? (Use logical CSS properties: start/end instead of left/right)
 - What happens if npm install fails due to network issues? (Clear error message with retry instructions)
+- What if Node.js version is below 20.x? (Display clear error message during setup with version requirement)
 
 ## Requirements
 
 ### Functional Requirements
 
-- **FR-001**: System MUST initialize Next.js 15 with App Router architecture
+- **FR-001**: System MUST initialize Next.js 15 with App Router architecture on Node.js 20.x LTS or higher
 - **FR-002**: System MUST enable TypeScript strict mode with zero "any" types allowed
 - **FR-003**: System MUST configure Tailwind CSS v4 with custom design tokens
 - **FR-004**: System MUST install and configure shadcn/ui with project-specific theming
 - **FR-005**: System MUST install Motion (Framer Motion v12) for animations
 - **FR-006**: System MUST configure next-intl for Arabic (default/RTL) and English (LTR) locales
 - **FR-007**: System MUST install Lucide React for icon components
-- **FR-008**: System MUST configure self-hosted fonts via next/font:
-  - Playfair Display (English headings)
-  - Inter (English body)
-  - Noto Naskh Arabic (Arabic headings)
-  - Tajawal (Arabic body)
+- **FR-008**: System MUST configure self-hosted fonts via next/font with local font files (no CDN):
+  - Playfair Display (English headings) - downloaded as .woff2 files
+  - Inter (English body) - downloaded as .woff2 files
+  - Noto Naskh Arabic (Arabic headings) - downloaded as .woff2 files
+  - Tajawal (Arabic body) - downloaded as .woff2 files
+  - Font files stored in `public/fonts/` directory
+  - Fonts loaded via next/font/local for optimal performance
 - **FR-009**: System MUST configure Tailwind RTL plugin for bidirectional layout support
 - **FR-010**: System MUST define CSS variables for all design tokens:
   - `--color-primary`: #550000 (deep maroon)
@@ -129,13 +140,15 @@ As a developer, I need Motion (Framer Motion v12) installed and working so that 
   - `src/data/` for data files
   - `src/lib/` for utilities
   - `messages/` for translations
+  - `public/fonts/` for self-hosted font files (.woff2 format)
   - `public/images/` for assets
 - **FR-012**: System MUST configure locale routing:
   - `/ar` → Arabic (default, redirect from `/`)
   - `/en` → English
 - **FR-013**: System MUST set correct `dir` attribute (`rtl` or `ltr`) based on active locale
 - **FR-014**: System MUST apply correct font family based on active locale
-- **FR-015**: Development server MUST run without errors or warnings
+- **FR-015**: System MUST run npm audit after dependency installation to check for security vulnerabilities
+- **FR-016**: Development server MUST run without errors or warnings
 
 ### Key Entities
 
@@ -153,5 +166,6 @@ As a developer, I need Motion (Framer Motion v12) installed and working so that 
 - **SC-004**: All 6 design token colors render with exact hex values specified in constitution
 - **SC-005**: Font files load in under 2 seconds on first page visit
 - **SC-006**: TypeScript compilation shows 0 type errors
-- **SC-007**: Hot module replacement (HMR) updates occur in under 1 second after file save
-- **SC-008**: Project structure matches constitution file organization exactly
+- **SC-007**: npm audit reports 0 high or critical vulnerabilities
+- **SC-008**: Hot module replacement (HMR) updates occur in under 1 second after file save
+- **SC-009**: Project structure matches constitution file organization exactly
