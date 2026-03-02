@@ -25,25 +25,25 @@ export default async function HomePage() {
             platform: "instagram",
             icon: null as any,
             label: t("instagram"),
-            href: "https://www.instagram.com/lyore.ae",
+            href: "https://www.instagram.com/Lyore_abaya",
         },
         {
             platform: "tiktok",
             icon: null as any,
             label: t("tiktok"),
-            href: "https://www.tiktok.com/@lyore.ae",
+            href: "https://www.tiktok.com/@Lyore.abaya",
         },
         {
             platform: "snapchat",
             icon: null as any,
             label: t("snapchat"),
-            href: "https://www.snapchat.com/add/lyore.ae",
+            href: "https://www.snapchat.com/add/Lyoreabayas",
         },
         {
             platform: "email",
             icon: null as any,
             label: t("email"),
-            href: "mailto:info@lyore.ae",
+            href: "https://mail.google.com/mail/?view=cm&fs=1&to=Lyoreabaya@gmail.com",
         },
     ];
 
