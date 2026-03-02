@@ -1,9 +1,15 @@
 {
   "bio": {
     "brandName": "LYORE ABAYA",
-    "tagline": "Luxury abayas that reflect your elegance",
-    "ctaWhatsApp": "Contact us on WhatsApp",
-    "ctaShop": "Shop Now"
+    "tagline": "Where elegance meets modesty",
+    "whatsapp": "Chat with Us",
+    "website": "Website Coming Soon",
+    "followUs": "Follow Us",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "snapchat": "Snapchat",
+    "email": "Email",
+    "copyright": "© LYORE ABAYA 2026 — All Rights Reserved"
   },
   "nav": {
     "home": "Home",
